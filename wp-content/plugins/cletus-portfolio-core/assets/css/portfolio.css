@@ -1,0 +1,2469 @@
+/* ==========================================================================
+   CLETUS PORTFOLIO CORE STYLESHEET — V3.3 (ULTRA-FLUID & GUARANTEED RESPONSIVE)
+   Visual Identity: Pure Black (#050505) + Deep Yellow Gold (#D4A017) + White (#FFFFFF)
+   Full-Website Geometric Grid Background Engine & 100% Fluid Mobile Sizing
+   ========================================================================== */
+
+:root {
+    --bg-primary: #050505;
+    --bg-secondary: #0D0D0D;
+    --bg-card: #111111;
+    --border-color: #1F1F1F;
+    --border-color-light: rgba(255, 255, 255, 0.08);
+    --border-gold: #D4A017;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #D1D1D1;
+    --text-muted: #8A8A8A;
+
+    --accent-gold: #D4A017;
+    --accent-gold-bright: #F2C94C;
+    --accent-gold-glow: rgba(212, 160, 23, 0.18);
+
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 1. Universal Responsive Fluidity Reset & Non-Overflow Foundations */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary) !important;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+.site-content,
+.ast-container,
+#content,
+#page,
+.site-header,
+.site-footer {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fluid Media & Embedded Objects */
+img,
+video,
+canvas,
+svg,
+iframe,
+embed,
+object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure Grid & Flex Items Shrink Properly Below Children Intrinsic Size */
+.cletus-hero-inner>*,
+.cletus-editorial-three-col>*,
+.cletus-showcase-row>*,
+.cletus-about-editorial-grid>*,
+.cletus-contact-editorial-grid>*,
+.cletus-footer-top>*,
+.cletus-footer-links-group>* {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Full-Website Fixed Geometric Grid Canvas */
+.cletus-grid-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    max-width: 100vw;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cletus-main-content,
+.cletus-site-header,
+.cletus-site-footer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hide Astra default header/footer elements */
+.entry-header,
+.ast-archive-description {
+    display: none !important;
+}
+
+.ast-plain-container,
+.ast-page-builder-template {
+    padding: 0 !important;
+}
+
+.entry-content {
+    margin-top: 0 !important;
+}
+
+/* Helper Utility Classes */
+.cletus-text-gold {
+    color: var(--accent-gold) !important;
+}
+
+.cletus-bg-secondary {
+    background-color: rgba(13, 13, 13, 0.88) !important;
+    backdrop-filter: blur(4px);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: clamp(12px, 3vw, 20px);
+}
+
+.mt-30 {
+    margin-top: clamp(18px, 4vw, 30px);
+}
+
+.mt-40 {
+    margin-top: clamp(24px, 5vw, 40px);
+}
+
+.mt-50 {
+    margin-top: clamp(30px, 6vw, 50px);
+}
+
+.cletus-container {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(14px, 3.5vw, 28px);
+    box-sizing: border-box;
+}
+
+.cletus-section {
+    padding: clamp(40px, 7vw, 110px) 0;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Navigation Header */
+.cletus-site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100vw;
+    z-index: 1000;
+    background-color: rgba(5, 5, 5, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+.cletus-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 12px clamp(12px, 3.5vw, 28px);
+    box-sizing: border-box;
+}
+
+.cletus-brand-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    max-width: 50%;
+    min-width: 0;
+}
+
+.cletus-main-logo-img {
+    height: clamp(48px, 5.5vw, 72px);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: -2px 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.cletus-brand-logo:hover .cletus-main-logo-img {
+    transform: scale(1.04);
+    opacity: 0.96;
+}
+
+.cletus-nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: clamp(16px, 2.2vw, 36px);
+    align-items: center;
+}
+
+.cletus-nav-link {
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.25s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.cletus-nav-link:hover,
+.cletus-nav-link.cletus-nav-active,
+.cletus-nav-link.active {
+    color: var(--accent-gold) !important;
+}
+
+.cletus-nav-link:hover::after,
+.cletus-nav-link.cletus-nav-active::after,
+.cletus-nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-gold);
+}
+
+.cletus-nav-mobile-only {
+    display: none;
+}
+
+.cletus-header-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1.8vw, 16px);
+    flex-shrink: 0;
+}
+
+.cletus-hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.cletus-hamburger span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.cletus-hamburger.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.cletus-hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.cletus-hamburger.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Buttons */
+.cletus-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    max-width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cletus-btn-sm {
+    padding: 8px 18px;
+    font-size: 0.88rem;
+}
+
+.cletus-btn-primary {
+    background-color: #D4A017 !important;
+    color: #000000 !important;
+    border: 1px solid #D4A017 !important;
+    box-shadow: 0 4px 18px rgba(212, 160, 23, 0.18);
+}
+
+.cletus-btn-primary,
+.cletus-btn-primary span,
+.cletus-btn-primary a {
+    color: #000000 !important;
+}
+
+.cletus-btn-primary .cletus-svg-icon,
+.cletus-btn-primary svg,
+.cletus-btn-primary svg path,
+.cletus-btn-primary svg line,
+.cletus-btn-primary svg polyline {
+    color: #000000 !important;
+    stroke: #000000 !important;
+    transition: color 0.3s ease, stroke 0.3s ease;
+}
+
+.cletus-btn-primary:hover {
+    background-color: #F2C94C !important;
+    border-color: #F2C94C !important;
+    color: #000000 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(242, 201, 76, 0.35);
+}
+
+.cletus-btn-primary:hover,
+.cletus-btn-primary:hover span,
+.cletus-btn-primary:hover a {
+    color: #000000 !important;
+}
+
+.cletus-btn-primary:hover .cletus-svg-icon,
+.cletus-btn-primary:hover svg,
+.cletus-btn-primary:hover svg path,
+.cletus-btn-primary:hover svg line,
+.cletus-btn-primary:hover svg polyline {
+    color: #000000 !important;
+    stroke: #000000 !important;
+}
+
+.cletus-btn-outline {
+    background-color: rgba(5, 5, 5, 0.6);
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+}
+
+.cletus-btn-outline:hover {
+    border-color: var(--border-gold);
+    color: var(--accent-gold) !important;
+    transform: translateY(-2px);
+}
+
+.cletus-btn-block {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+/* SVG Vector Icons & PNG Icons Styling */
+.cletus-svg-icon {
+    display: inline-block;
+    vertical-align: middle;
+    fill: none;
+    stroke: currentColor;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.cletus-png-icon {
+    width: 22px;
+    height: 22px;
+    max-width: 22px;
+    max-height: 22px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.cletus-btn-icon-inline {
+    margin-left: 6px;
+}
+
+/* Hero Section: Spacious Editorial Layout */
+.cletus-hero-section {
+    padding: clamp(30px, 6vw, 100px) 0 clamp(40px, 7vw, 110px) 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    width: 100%;
+}
+
+.cletus-hero-inner {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 clamp(14px, 3.5vw, 28px);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(24px, 4.5vw, 70px);
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.cletus-hero-text {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 0 40px;
+}
+
+.cletus-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background-color: rgba(13, 13, 13, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: clamp(14px, 3vw, 28px);
+    backdrop-filter: blur(4px);
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    /* ALLOW NATURAL WRAPPING */
+    word-break: break-word;
+    line-height: 1.35;
+    text-align: left;
+}
+
+.cletus-badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-gold);
+    flex-shrink: 0;
+    animation: cletusPulse 2s infinite;
+}
+
+@keyframes cletusPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.25);
+    }
+}
+
+.cletus-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+}
+
+.cletus-hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3.5vw, 1.8rem);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 0 20px 0;
+    min-height: 1.3em;
+    line-height: 1.3;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.cletus-typing-highlight {
+    color: var(--accent-gold) !important;
+}
+
+.cletus-cursor {
+    color: var(--accent-gold);
+    animation: cletusBlink 0.8s infinite;
+}
+
+@keyframes cletusBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.cletus-hero-description {
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin-bottom: clamp(20px, 4vw, 40px);
+    line-height: 1.65;
+    word-break: break-word;
+}
+
+.cletus-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: clamp(28px, 4.5vw, 52px);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(16px, 3.5vw, 48px);
+    padding-top: clamp(18px, 3vw, 32px);
+    border-top: 1px solid var(--border-color-light);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-stat-box {
+    min-width: 70px;
+}
+
+.cletus-stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3.8vw, 2.2rem);
+    font-weight: 800;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.cletus-stat-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Testimonial Section Header & Single Card */
+.cletus-testimonial-header {
+    margin-top: clamp(24px, 5vw, 60px);
+    margin-bottom: 24px;
+}
+
+.cletus-testimonial-card-single {
+    margin: 0 auto;
+    max-width: 840px;
+    padding: clamp(24px, 4vw, 36px);
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-testimonial-card-single:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+}
+
+.cletus-testimonial-quote-icon {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.95;
+}
+
+.cletus-testimonial-quote-text {
+    color: #E0E0E0;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    line-height: 1.72;
+    font-style: italic;
+    margin: 0 auto 20px auto;
+    max-width: 740px;
+    letter-spacing: 0.1px;
+    word-break: break-word;
+}
+
+.cletus-testimonial-author-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cletus-testimonial-author-name {
+    color: #D4AF37;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+}
+
+.cletus-testimonial-author-title {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Profile Image Frame */
+.cletus-hero-square-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.cletus-profile-frame-square {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    background: #0A0A0A;
+    border: 1px solid var(--border-color);
+    padding: clamp(8px, 2.5vw, 16px);
+    box-sizing: border-box;
+    margin: 0 auto;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease-out;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.cletus-profile-frame-square:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px var(--accent-gold-glow);
+}
+
+.cletus-square-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #050505;
+    border: 1px solid var(--border-color);
+}
+
+.cletus-profile-square-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.cletus-profile-frame-square:hover .cletus-profile-square-img {
+    transform: scale(1.04);
+}
+
+.cletus-square-corner-accent {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--accent-gold);
+    border-style: solid;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.cletus-square-corner-accent.top-left {
+    top: 6px;
+    left: 6px;
+    border-width: 2px 0 0 2px;
+}
+
+.cletus-square-corner-accent.bottom-right {
+    bottom: 6px;
+    right: 6px;
+    border-width: 0 2px 2px 0;
+}
+
+.cletus-profile-square-meta {
+    padding-top: 14px;
+    text-align: center;
+}
+
+.cletus-profile-square-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(0.88rem, 2vw, 1.05rem);
+    color: var(--text-primary);
+    letter-spacing: 1px;
+}
+
+.cletus-profile-square-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Editorial Headers & Layouts */
+.cletus-editorial-header {
+    max-width: 760px;
+    margin-bottom: clamp(24px, 5vw, 60px);
+    width: 100%;
+}
+
+.cletus-section-kicker {
+    font-size: clamp(0.78rem, 1.6vw, 0.88rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.cletus-section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.cletus-section-lead {
+    font-size: clamp(1.02rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.68;
+    word-break: break-word;
+}
+
+/* Editorial 3-Column Biography Summary */
+.cletus-editorial-three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(18px, 3.5vw, 40px);
+    border-top: 1px solid var(--border-color-light);
+    padding-top: clamp(20px, 3.5vw, 40px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-editorial-col {
+    position: relative;
+    width: 100%;
+}
+
+.cletus-editorial-num {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 14px;
+}
+
+.cletus-editorial-col h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.18rem, 2.4vw, 1.45rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+}
+
+.cletus-editorial-col p {
+    font-size: clamp(1rem, 1.8vw, 1.08rem);
+    color: var(--text-secondary);
+    line-height: 1.68;
+    margin: 0;
+    word-break: break-word;
+}
+
+/* Services: Hairline Editorial Rows */
+.cletus-services-editorial-list {
+    border-top: 1px solid var(--border-color-light);
+    width: 100%;
+}
+
+.cletus-service-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 40px;
+    align-items: center;
+    gap: clamp(10px, 2.5vw, 24px);
+    padding: clamp(16px, 3.5vw, 32px) clamp(4px, 1.5vw, 16px);
+    border-bottom: 1px solid var(--border-color-light);
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-left: 0px solid transparent;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-service-row:hover {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding-left: clamp(12px, 2.5vw, 28px);
+    border-left: 3px solid var(--accent-gold);
+}
+
+.cletus-service-row-num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-weight: 800;
+    color: var(--accent-gold);
+}
+
+.cletus-service-row-body h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 6px 0;
+}
+
+.cletus-service-row-body p {
+    font-size: clamp(1rem, 1.8vw, 1.08rem);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.55;
+    word-break: break-word;
+}
+
+.cletus-service-row-icon {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cletus-service-row-svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--accent-gold);
+}
+
+/* Project Showcase */
+.cletus-projects-editorial-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(32px, 6vw, 80px);
+    width: 100%;
+}
+
+.cletus-showcase-row {
+    display: grid;
+    gap: clamp(20px, 4vw, 50px);
+    align-items: center;
+    padding-bottom: clamp(24px, 4vw, 60px);
+    border-bottom: 1px solid var(--border-color-light);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-showcase-row.cletus-stagger-left {
+    grid-template-columns: 1.1fr 0.9fr;
+}
+
+.cletus-showcase-row.cletus-stagger-right {
+    grid-template-columns: 0.9fr 1.1fr;
+}
+
+.cletus-showcase-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #080808;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cletus-showcase-img-box:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 25px var(--accent-gold-glow);
+}
+
+.cletus-showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.cletus-showcase-img-box:hover .cletus-showcase-img {
+    transform: scale(1.05);
+}
+
+.cletus-showcase-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: clamp(0.65rem, 1.4vw, 0.72rem);
+    font-weight: 700;
+    padding: 3px 8px;
+    background: rgba(5, 5, 5, 0.88);
+    color: var(--accent-gold);
+    border: 1px solid var(--border-gold);
+    letter-spacing: 1px;
+    max-width: calc(100% - 20px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cletus-showcase-text-box {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-showcase-num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    color: var(--accent-gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.cletus-showcase-cat {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.cletus-showcase-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    word-break: break-word;
+}
+
+.cletus-showcase-desc {
+    font-size: clamp(1rem, 1.8vw, 1.08rem);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 24px 0;
+    word-break: break-word;
+}
+
+.cletus-project-details {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cletus-project-block {
+    position: relative;
+}
+
+.cletus-project-label {
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin: 0 0 3px 0;
+}
+
+.cletus-project-block .cletus-showcase-desc {
+    font-size: clamp(1rem, 1.8vw, 1.08rem);
+    color: var(--text-secondary);
+    line-height: 1.68;
+    margin: 0;
+}
+
+.cletus-showcase-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.cletus-showcase-tech span {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* Full-Width Showcase */
+.cletus-showcase-row.cletus-showcase-creative-full {
+    display: block;
+    width: 100%;
+}
+
+.cletus-creative-full-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cletus-showcase-img-box.full-width {
+    height: clamp(200px, 30vw, 420px);
+    margin-bottom: 24px;
+    aspect-ratio: auto;
+}
+
+.cletus-creative-full-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cletus-creative-full-footer .cletus-showcase-desc {
+    max-width: 720px;
+    margin: 0;
+}
+
+/* CTA Banner */
+.cletus-cta-banner {
+    background: rgba(13, 13, 13, 0.94);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: clamp(40px, 7vw, 90px) 0;
+    backdrop-filter: blur(6px);
+    width: 100%;
+}
+
+.cletus-cta-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.8vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    word-break: break-word;
+}
+
+.cletus-cta-text {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto 32px auto;
+    word-break: break-word;
+}
+
+/* Page Header */
+.cletus-page-header {
+    padding: clamp(32px, 6vw, 80px) 0;
+    background-color: rgba(13, 13, 13, 0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.cletus-page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 14px 0;
+    word-break: break-word;
+}
+
+.cletus-page-lead {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    margin: 0;
+    word-break: break-word;
+}
+
+/* About Page Editorial Layout */
+.cletus-about-editorial-grid {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: clamp(24px, 4.5vw, 60px);
+    align-items: flex-start;
+    width: 100%;
+}
+
+.cletus-about-text-col .cletus-subheading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    word-break: break-word;
+}
+
+.cletus-paragraph-lead {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.75;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    word-break: break-word;
+}
+
+.cletus-editorial-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 1px solid var(--border-color-light);
+    padding-top: 20px;
+    width: 100%;
+}
+
+.cletus-editorial-item-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.cletus-editorial-item-icon {
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.cletus-bio-icon-svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--accent-gold);
+}
+
+.cletus-editorial-item-row h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.cletus-editorial-item-row p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+    word-break: break-word;
+}
+
+/* Blog Editorial Grid & Post Cards */
+.cletus-blog-editorial-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(18px, 3.5vw, 32px);
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.cletus-blog-row {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(16px, 4vw, 36px) clamp(14px, 4vw, 40px);
+    background-color: rgba(13, 13, 13, 0.94);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-blog-row:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), 0 0 24px var(--accent-gold-glow);
+    transform: translateY(-2px);
+}
+
+.cletus-blog-meta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cletus-blog-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.cletus-blog-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.cletus-blog-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 14px 0;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.cletus-blog-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.cletus-blog-title a:hover {
+    color: var(--accent-gold);
+}
+
+.cletus-blog-excerpt {
+    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 24px 0;
+    word-break: break-word;
+}
+
+.cletus-blog-meta-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cletus-read-article-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.cletus-read-article-btn:hover {
+    color: var(--accent-gold-bright);
+    gap: 12px;
+}
+
+/* Blog Post Thumbnails & In-Article Media */
+.cletus-blog-thumb-box {
+    width: 100%;
+    max-height: 320px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+    background-color: #050505;
+}
+
+.cletus-blog-thumb-img {
+    width: 100%;
+    height: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.cletus-blog-row:hover .cletus-blog-thumb-img {
+    transform: scale(1.02);
+    filter: brightness(1.06);
+}
+
+.cletus-single-featured-box {
+    width: 100%;
+    margin-bottom: 32px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+    background-color: #050505;
+}
+
+.cletus-single-featured-img {
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    display: block;
+}
+
+.cletus-article-figure {
+    margin: 24px 0;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: #0d0d0d;
+}
+
+.cletus-article-img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.cletus-article-caption {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background-color: #0d0d0d;
+    border-top: 1px solid var(--border-color-light);
+    text-align: center;
+    font-family: var(--font-body);
+}
+
+/* Single Post Editorial Layout */
+.cletus-single-post-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.cletus-single-post-header {
+    padding: clamp(36px, 6vw, 70px) 0 32px 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(13, 13, 13, 0.88);
+    backdrop-filter: blur(6px);
+    width: 100%;
+}
+
+.cletus-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.25s ease;
+    margin-bottom: 20px;
+}
+
+.cletus-back-link:hover {
+    color: var(--accent-gold);
+}
+
+.cletus-back-icon {
+    transform: rotate(180deg);
+}
+
+.cletus-btn-icon-left {
+    transform: rotate(180deg);
+    margin-right: 6px;
+}
+
+.cletus-single-post-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 4.2vw, 2.8rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 16px 0 20px 0;
+    line-height: 1.25;
+    max-width: 900px;
+    word-break: break-word;
+}
+
+.cletus-single-post-byline {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cletus-byline-author strong {
+    color: var(--accent-gold);
+}
+
+.cletus-single-post-body {
+    padding: clamp(32px, 6vw, 80px) 0 clamp(48px, 8vw, 120px) 0;
+}
+
+.cletus-reading-container {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--text-primary);
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.85;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-reading-container p {
+    margin-bottom: 24px;
+    color: var(--text-secondary);
+    word-break: break-word;
+}
+
+.cletus-reading-container p:first-of-type {
+    font-size: clamp(1rem, 2.2vw, 1.18rem);
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+/* Contact Editorial Grid & Form */
+.cletus-contact-editorial-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(24px, 4.5vw, 60px);
+    width: 100%;
+}
+
+.cletus-subheading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 18px 0;
+    word-break: break-word;
+}
+
+.cletus-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 1px solid var(--border-color-light);
+    padding-top: 20px;
+    width: 100%;
+}
+
+.cletus-contact-item-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.cletus-contact-item-icon {
+    flex-shrink: 0;
+}
+
+.cletus-contact-icon-svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--accent-gold);
+}
+
+.cletus-contact-item-row h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    margin: 0 0 2px 0;
+    color: var(--text-primary);
+}
+
+.cletus-contact-item-row p,
+.cletus-contact-item-row a {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0;
+    word-break: break-word;
+}
+
+.cletus-contact-item-row a:hover {
+    color: var(--accent-gold);
+}
+
+/* Social Platforms Vector SVG Styling */
+.cletus-socials-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 14px 0;
+}
+
+.cletus-social-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+}
+
+.cletus-social-pills-row a,
+.cletus-social-icon-list li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: clamp(6px, 1.8vw, 9px) clamp(10px, 2.2vw, 18px);
+    background-color: #111111;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cletus-social-pills-row a .cletus-svg-icon,
+.cletus-social-icon-list li a .cletus-svg-icon,
+.cletus-social-pills-row a .cletus-png-icon,
+.cletus-social-icon-list li a .cletus-png-icon {
+    color: #FFFFFF;
+    transition: filter 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.cletus-social-pills-row a:hover,
+.cletus-social-icon-list li a:hover {
+    border-color: var(--border-gold);
+    color: var(--accent-gold);
+    background-color: #161616;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 14px rgba(242, 201, 76, 0.25), 0 0 10px rgba(212, 160, 23, 0.2);
+}
+
+.cletus-social-pills-row a:hover .cletus-svg-icon,
+.cletus-social-icon-list li a:hover .cletus-svg-icon {
+    color: var(--accent-gold);
+}
+
+.cletus-social-pills-row a:hover .cletus-png-icon,
+.cletus-social-icon-list li a:hover .cletus-png-icon,
+.cletus-header-actions a:hover .cletus-png-icon {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(85%) saturate(762%) hue-rotate(357deg) brightness(94%) contrast(89%);
+}
+
+.cletus-social-icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.cletus-contact-form-col {
+    background-color: rgba(13, 13, 13, 0.94);
+    border: 1px solid var(--border-color);
+    padding: clamp(16px, 4vw, 40px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.cletus-form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.cletus-form-group input,
+.cletus-form-group textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 14px;
+    background-color: #070707;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cletus-form-group input:focus,
+.cletus-form-group textarea:focus {
+    outline: none;
+    border-color: var(--border-gold);
+    box-shadow: 0 0 12px var(--accent-gold-glow);
+}
+
+/* Footer Styling */
+.cletus-site-footer {
+    background-color: rgba(3, 3, 3, 0.96);
+    border-top: 1px solid var(--border-color);
+    padding: clamp(40px, 7vw, 80px) 0 32px 0;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.cletus-footer-top {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 clamp(14px, 3.5vw, 28px);
+    display: grid;
+    grid-template-columns: 1.4fr 2.6fr;
+    gap: clamp(24px, 4.5vw, 60px);
+    margin-bottom: clamp(24px, 4.5vw, 60px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cletus-footer-tagline {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-top: 16px;
+    max-width: 340px;
+    line-height: 1.65;
+    word-break: break-word;
+}
+
+.cletus-footer-links-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(18px, 3.5vw, 40px);
+    width: 100%;
+}
+
+.cletus-footer-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+}
+
+.cletus-footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cletus-footer-col li {
+    margin-bottom: 12px;
+}
+
+.cletus-footer-col a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.25s ease;
+}
+
+.cletus-footer-col a:hover {
+    color: var(--accent-gold);
+}
+
+.cletus-footer-bottom {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 24px clamp(14px, 3.5vw, 28px) 0 clamp(14px, 3.5vw, 28px);
+    border-top: 1px solid var(--border-color-light);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   CREATIVE DESIGNS CONTINUOUS HORIZONTAL REEL
+   ========================================================================== */
+.cletus-showcase-img-box.cletus-creative-box-viewport {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: clamp(200px, 28vw, 380px);
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    background-color: #080808;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+}
+
+.cletus-creative-box-viewport:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 25px var(--accent-gold-glow);
+}
+
+.cletus-creative-box-viewport .cletus-marquee-track {
+    display: flex;
+    gap: 16px;
+    height: 100%;
+    align-items: center;
+    width: max-content;
+    animation: cletusContinuousMarquee 38s linear infinite;
+    will-change: transform;
+}
+
+.cletus-creative-box-viewport:hover .cletus-marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes cletusContinuousMarquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.cletus-creative-box-viewport .cletus-marquee-item {
+    position: relative;
+    height: calc(100% - 8px);
+    flex: 0 0 clamp(150px, 22vw, 280px);
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: #050505;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cletus-creative-box-viewport .cletus-marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.cletus-creative-box-viewport .cletus-marquee-item:hover {
+    transform: scale(1.03);
+    border-color: var(--accent-gold);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85), 0 0 18px var(--accent-gold-glow);
+    z-index: 5;
+}
+
+.cletus-creative-box-viewport .cletus-marquee-item:hover img {
+    transform: scale(1.06);
+}
+
+.cletus-creative-box-viewport .cletus-marquee-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 14px;
+    background: linear-gradient(to top, rgba(5, 5, 5, 0.94), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.cletus-creative-box-viewport .cletus-marquee-item:hover .cletus-marquee-overlay {
+    opacity: 1;
+}
+
+.cletus-creative-box-viewport .cletus-marquee-overlay span {
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (DESKTOP TO ULTRA-NARROW MOBILE)
+   ========================================================================== */
+
+/* Laptop & Tablet Desktop Transition (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    .cletus-container,
+    .cletus-nav-container,
+    .cletus-hero-inner,
+    .cletus-footer-top,
+    .cletus-footer-bottom {
+        padding-inline: 28px;
+    }
+
+    .cletus-hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 36px;
+    }
+
+    .cletus-main-logo-img {
+        height: 68px;
+        max-width: 240px;
+    }
+
+    .cletus-hero-title {
+        font-size: 3.5rem;
+    }
+
+    .cletus-hero-subtitle {
+        font-size: 1.85rem;
+    }
+
+    .cletus-hero-description {
+        margin: 0 auto 28px auto;
+        font-size: 1.25rem;
+    }
+
+    .cletus-status-badge {
+        font-size: 1.05rem;
+        padding: 10px 24px;
+    }
+
+    .cletus-section-kicker {
+        font-size: 0.98rem;
+    }
+
+    .cletus-section-heading {
+        font-size: 2.85rem;
+    }
+
+    .cletus-section-lead {
+        font-size: 1.25rem;
+    }
+
+    .cletus-page-title {
+        font-size: 3.25rem;
+    }
+
+    .cletus-page-lead {
+        font-size: 1.28rem;
+    }
+
+    .cletus-showcase-num {
+        font-size: 2.9rem;
+    }
+
+    .cletus-showcase-title {
+        font-size: 2.5rem;
+    }
+
+    .cletus-showcase-desc {
+        font-size: 1.22rem;
+    }
+
+    .cletus-subheading {
+        font-size: 2.15rem;
+    }
+
+    .cletus-paragraph-lead {
+        font-size: 1.25rem;
+    }
+
+    .cletus-blog-title {
+        font-size: 2.05rem;
+    }
+
+    .cletus-blog-excerpt {
+        font-size: 1.22rem;
+    }
+
+    .cletus-single-post-title {
+        font-size: 2.85rem;
+    }
+
+    .cletus-reading-container {
+        font-size: 1.25rem;
+    }
+
+    .cletus-stat-number {
+        font-size: 2.55rem;
+    }
+
+    .cletus-stat-text {
+        font-size: 1.05rem;
+    }
+
+    .cletus-btn {
+        padding: 16px 32px;
+        font-size: 1.12rem;
+    }
+
+    .cletus-btn-sm {
+        padding: 11px 24px;
+        font-size: 1.02rem;
+    }
+
+    .cletus-hero-buttons {
+        justify-content: center;
+    }
+
+    .cletus-hero-stats {
+        justify-content: center;
+    }
+
+    .cletus-editorial-three-col {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .cletus-showcase-row.cletus-stagger-left,
+    .cletus-showcase-row.cletus-stagger-right {
+        grid-template-columns: 1fr;
+    }
+
+    .cletus-creative-full-header,
+    .cletus-creative-full-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .cletus-about-editorial-grid,
+    .cletus-contact-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .cletus-footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .cletus-footer-tagline {
+        font-size: 1.12rem;
+    }
+
+    .cletus-footer-title {
+        font-size: 1.3rem;
+    }
+
+    .cletus-footer-col a {
+        font-size: 1.08rem;
+    }
+}
+
+/* Tablet & Mobile Breakpoint (Max-width: 768px) */
+@media (max-width: 768px) {
+    .cletus-container,
+    .cletus-nav-container,
+    .cletus-hero-inner,
+    .cletus-footer-top,
+    .cletus-footer-bottom {
+        padding-inline: 24px;
+    }
+
+    .cletus-main-logo-img {
+        height: 66px;
+        max-width: 230px;
+        margin: 0;
+    }
+
+    .cletus-hero-text {
+        padding: 0;
+    }
+
+    .cletus-hero-title {
+        font-size: 3.2rem;
+    }
+
+    .cletus-hero-subtitle {
+        font-size: 1.75rem;
+    }
+
+    .cletus-hero-description {
+        font-size: 1.08rem;
+    }
+
+    .cletus-status-badge {
+        font-size: 0.95rem;
+        padding: 8px 18px;
+    }
+
+    .cletus-section-kicker {
+        font-size: 0.88rem;
+    }
+
+    .cletus-section-heading {
+        font-size: 2.3rem;
+    }
+
+    .cletus-section-lead {
+        font-size: 1.08rem;
+    }
+
+    .cletus-page-title {
+        font-size: 2.5rem;
+    }
+
+    .cletus-page-lead {
+        font-size: 1.08rem;
+    }
+
+    .cletus-showcase-num {
+        font-size: 2.4rem;
+    }
+
+    .cletus-showcase-title {
+        font-size: 2.0rem;
+    }
+
+    .cletus-showcase-desc {
+        font-size: 1.08rem;
+    }
+
+    .cletus-showcase-badge {
+        font-size: 0.82rem;
+    }
+
+    .cletus-subheading {
+        font-size: 1.85rem;
+    }
+
+    .cletus-paragraph-lead {
+        font-size: 1.08rem;
+    }
+
+    .cletus-blog-title {
+        font-size: 1.7rem;
+    }
+
+    .cletus-blog-excerpt {
+        font-size: 1.08rem;
+    }
+
+    .cletus-single-post-title {
+        font-size: 2.65rem;
+    }
+
+    .cletus-reading-container {
+        font-size: 1.22rem;
+    }
+
+    .cletus-stat-number {
+        font-size: 2.4rem;
+    }
+
+    .cletus-stat-text {
+        font-size: 1.0rem;
+    }
+
+    .cletus-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    .cletus-btn-sm {
+        padding: 10px 22px;
+        font-size: 1.0rem;
+    }
+
+    .cletus-nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        background-color: rgba(10, 10, 10, 0.98);
+        border-bottom: 1px solid var(--border-color);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 18px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+    }
+
+    .cletus-nav-list .cletus-nav-link {
+        font-size: 1.22rem;
+    }
+
+    .cletus-nav-list.cletus-nav-active {
+        display: flex;
+    }
+
+    .cletus-nav-mobile-only {
+        display: block;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-color-light);
+    }
+
+    .cletus-hamburger {
+        display: flex;
+        padding: 8px;
+    }
+
+    .cletus-hamburger span {
+        width: 30px;
+        height: 3px;
+    }
+
+    /* Force hide header top-bar WhatsApp button on mobile viewports */
+    .cletus-header-actions .cletus-header-whatsapp,
+    a.cletus-btn.cletus-header-whatsapp {
+        display: none !important;
+    }
+
+    .cletus-profile-frame-square {
+        max-width: 380px;
+        padding: 20px;
+    }
+
+    .cletus-testimonial-card-single {
+        padding: 32px;
+    }
+
+    .cletus-blog-row {
+        padding: 32px 28px;
+    }
+
+    .cletus-contact-form-col {
+        padding: 36px 28px;
+    }
+
+    .cletus-editorial-three-col {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .cletus-service-row {
+        grid-template-columns: 40px 1fr auto;
+        gap: 16px;
+        padding: 24px 10px;
+        align-items: center;
+    }
+
+    .cletus-service-row-num {
+        font-size: 1.35rem;
+    }
+
+    .cletus-service-row-body h3 {
+        font-size: 1.35rem;
+    }
+
+    .cletus-service-row-body p {
+        font-size: 1.08rem;
+    }
+
+    .cletus-service-row-icon {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .cletus-footer-tagline {
+        font-size: 1.12rem;
+    }
+
+    .cletus-footer-title {
+        font-size: 1.25rem;
+    }
+
+    .cletus-footer-col a {
+        font-size: 1.05rem;
+    }
+
+    .cletus-footer-links-group {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .cletus-footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        font-size: 1.0rem;
+    }
+}
+
+/* Small Mobile Breakpoint (Max-width: 640px) */
+@media (max-width: 640px) {
+    .cletus-container,
+    .cletus-nav-container,
+    .cletus-hero-inner,
+    .cletus-footer-top,
+    .cletus-footer-bottom {
+        padding-inline: 20px;
+    }
+
+    .cletus-main-logo-img {
+        height: 60px;
+        max-width: 210px;
+    }
+
+    .cletus-hero-title {
+        font-size: 2.9rem;
+    }
+
+    .cletus-hero-subtitle {
+        font-size: 1.62rem;
+    }
+
+    .cletus-section-heading {
+        font-size: 2.45rem;
+    }
+
+    .cletus-page-title {
+        font-size: 2.7rem;
+    }
+
+    .cletus-showcase-title {
+        font-size: 2.15rem;
+    }
+
+    .cletus-subheading {
+        font-size: 1.9rem;
+    }
+
+    .cletus-btn {
+        padding: 14px 28px;
+        font-size: 1.06rem;
+    }
+
+    .cletus-btn-sm {
+        padding: 10px 20px;
+        font-size: 0.98rem;
+    }
+
+    .cletus-hero-buttons {
+        flex-direction: column;
+        width: 100% !important;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .cletus-hero-buttons .cletus-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center;
+        box-sizing: border-box;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .cletus-hero-stats {
+        gap: 16px;
+        justify-content: space-around;
+    }
+
+    .cletus-footer-links-group {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cletus-service-row {
+        grid-template-columns: 32px 1fr auto;
+        gap: 12px;
+        padding: 20px 6px;
+        align-items: center;
+    }
+
+    .cletus-showcase-img-box.cletus-creative-box-viewport {
+        height: 220px;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .cletus-creative-box-viewport .cletus-marquee-item {
+        flex: 0 0 160px;
+    }
+}
+
+/* Extra Small Mobile (Max-width: 360px) */
+@media (max-width: 360px) {
+    .cletus-container,
+    .cletus-nav-container,
+    .cletus-hero-inner,
+    .cletus-footer-top,
+    .cletus-footer-bottom {
+        padding-inline: 16px;
+    }
+
+    .cletus-brand-logo {
+        max-width: 190px;
+    }
+
+    .cletus-main-logo-img {
+        height: 54px;
+        max-width: 190px;
+    }
+
+    .cletus-hero-title {
+        font-size: 2.65rem;
+    }
+
+    .cletus-section-heading {
+        font-size: 2.25rem;
+    }
+}
+
+/* Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .cletus-creative-box-viewport .cletus-marquee-track {
+        animation: none !important;
+    }
+
+    .cletus-showcase-img-box.cletus-creative-box-viewport {
+        overflow-x: auto !important;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+}
+
+/* ==========================================================================
+   NEW SECTIONS: WHAT WE NEED TO START & SERVICES USEFULNESS
+   ========================================================================== */
+
+/* What We Need to Start Component */
+.cletus-start-requirements-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: clamp(20px, 4vw, 36px);
+    margin-top: 24px;
+}
+
+.cletus-start-lead {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.cletus-start-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: clamp(16px, 2.5vw, 24px);
+}
+
+.cletus-start-step-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cletus-start-step-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold);
+}
+
+.cletus-start-step-card .cletus-step-num {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cletus-start-step-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+}
+
+.cletus-start-step-card p {
+    font-size: clamp(1rem, 1.8vw, 1.08rem);
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* How My Services Can Be Useful to Others Component */
+.cletus-usefulness-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(16px, 2.5vw, 24px);
+    margin-top: 24px;
+}
+
+.cletus-usefulness-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: clamp(18px, 3vw, 26px);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cletus-usefulness-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 24px rgba(212, 160, 23, 0.08);
+}
+
+.cletus-usefulness-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--accent-gold);
+}
+
+.cletus-usefulness-header {
+    margin-bottom: 8px;
+}
+
+.cletus-usefulness-target {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    display: block;
+}
+
+.cletus-usefulness-desc {
+    font-size: clamp(1rem, 1.8vw, 1.08rem);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.65;
+}
